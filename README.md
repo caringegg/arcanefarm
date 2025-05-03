@@ -44,3 +44,5 @@ Deleting and sending messages: https://www.youtube.com/watch?v=p-AqYm4IiU4
 Scraping channels: https://www.youtube.com/watch?v=xh28F6f-Cds
 
 Everything else is pretty much written by me. 
+
+Contributions are welcome!
