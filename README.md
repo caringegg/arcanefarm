@@ -15,10 +15,12 @@ I do not gather any of the info you enter. The code is open source, so feel free
 - Checks the last message sender to prevent conflicts.
 - Completely customizable configuration file for user settings.
 
-## How to use
-
-1. Once you download and unzip the folder, you should see a config.ini and a main.exe file.
-2. Open config.ini with Notepad FIRST and configure your settings. Please read all the comments in that file to make sure no issues occur!
+## How to use (explained like I would for 5 year olds)
+1. Go to releases, and go to the latest release. Click on it.
+2. In the assets section, you should see a zip files. Download the one that corresponds with the OS you use by clicking on it.
+3. Unzip the file by right clicking the file, then pressing "extract all".
+4. Once it finishes extracting, open the arcanefarm folder. In it, you should see a config.ini and a main.exe file.
+5. Open config.ini with Notepad FIRST and configure your settings. Please read all the comments in that file to make sure no issues occur!
 
 Static variables:
 
@@ -32,9 +34,9 @@ Static variables:
 
 All other variables are customizable to your liking. I made it very clear how to set these, so you shouldn't have any problems. 
 
-I recommend setting the intervals between messages to be around 1 minute (Arcane's cooldown on messages) to maintain efficiency.
+I recommend setting the intervals between messages to be around 1 minute (Arcane's cooldown on messages) to maintain efficiency. If I'm aware, the MEE6 cooldown is also 1 minute.
 
-3. Once all variables have been defined, save the file and open main.exe. If you did it right, you now have a working XP farmer!
+6. Once all variables have been defined, save the file and open main.exe. If you did it right, you now have a working discord XP farmer!
 
 
 ## Credits
