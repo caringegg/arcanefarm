@@ -30,7 +30,9 @@ Static variables:
 
 | `input_userid`     | Obtainable with developer mode on discord. 
 
-| `utc_offset`       | The code has built in functions to find your utc offset.  
+| `utc_offset`       | The code has built in functions to find your utc offset.
+
+| `bot_token` | Follow [this video](https://www.youtube.com/watch?v=mcsbmv7mZus&t=2s) to get a bot token.
 
 All other variables are customizable to your liking. I made it very clear how to set these, so you shouldn't have any problems. 
 
