@@ -1,3 +1,8 @@
+# 1.2.0 NOTES
+# Bugfixing 
+# Safelist not showing up properly
+# User error handling problem fixed
+
 import json
 import requests
 import time
@@ -243,7 +248,7 @@ def run_script(): # all functions are run
             else: # theres no point doing a countdown if the interval between messages is under a second
                 time.sleep(random_sleep)
         except Exception as e:
-            print(f'{e}')
+            print(f'{e}') # error
             end()
 
 # Possible errors the user made in config.ini
@@ -253,7 +258,7 @@ if not utc_offset or utc_offset == "-0:00":
 if any(value < 0 for value in (min_sleep, max_sleep, min_active, max_active)): 
     print('Why did bro put a NEGATIVE number for a time duration. ')
     end()
-if not all(['input_token', 'input_channel', 'input_userid', 'input_message', 'check_for_last_msg', 'delete_message', 'min_sleep', 'max_sleep']):
+if not all([input_token, input_channel, input_userid, input_message, check_for_last_msg, delete_message, min_sleep, max_sleep]):
     print('A variable that was necessary to run was left blank.')
     end()
 
@@ -261,10 +266,11 @@ if not all(['input_token', 'input_channel', 'input_userid', 'input_message', 'ch
 print('Confirm settings:\n')
 print(f'Message to be sent: {input_message}')
 print(f'Check for last message: {check_for_last_msg}')
-if bot_token:
-    print(f'Safelist: {get_safelist_with_names(safelist)}') 
-else:
-    print(f'Safelist: {", ".join(safelist)}')
+if check_for_last_msg:
+    if bot_token:
+        print(f'Safelist: {get_safelist_with_names(safelist)}') 
+    else:
+        print(f'Safelist: {", ".join(safelist)}')
 print(f'Interval between messages: {min_sleep} - {max_sleep} seconds')
 print(f'Delete messages: {delete_message}')
 if delete_message:
