@@ -55,7 +55,9 @@ Contributions are welcome!
 
 ## This project is no longer in development.
 1.2.0 will probably be the final version, at least for a long time. It's been really fun working on this project on the side but I've just lost motivation, combining with the fact that I've basically done everything my amateur skills can allow. If there are any bugs I will fix them asap, but no new features will be made unless I get motivation or this project gets attention.
+
 This project has been in the works (on and off) for almost 9 months now, and I'm glad to put it to rest.
+
 
 Thank you to everyone who helped me along the way. 5/27/2025
 
