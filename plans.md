@@ -1,7 +1,7 @@
 Just a list of tasks I would like to see in the program
 
 
-Things I will most likely do: 
+Things that will most likely be done: 
 
 - Make compatible versions for Linux and MacOS (i only have a windows, how do i do this bro) partially done on for mac on 1.1.0, still need 1.2.0 mac version
 
