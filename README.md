@@ -10,6 +10,7 @@ Arcane gives a random amount of XP to a user at a specific cooldown, every 1 min
 I do not gather any of the info you enter. The code is open source, so feel free to look through it.
 
 ## Features
+- To debug the path of the config file, type `config_path` into the confirmation screen.
 - Automated message sending with customizable intervals.
 - Configurable deletion of sent messages after a random time. Deleted messages still count towards XP.
 - Checks the last message sender to prevent conflicts.
@@ -50,3 +51,11 @@ Scraping channels: https://www.youtube.com/watch?v=xh28F6f-Cds
 Everything else is pretty much written by me. 
 
 Contributions are welcome!
+
+
+## This project is no longer in development.
+1.2.0 will probably be the final version, at least for a long time. It's been really fun working on this project on the side but I've just lost motivation, combining with the fact that I've basically done everything my amateur skills can allow. If there are any bugs I will fix them asap, but no new features will be made unless I get motivation or this project gets attention.
+This project has been in the works (on and off) for almost 9 months now, and I'm glad to put it to rest.
+
+Thank you to everyone who helped me along the way. 5/27/2025
+
