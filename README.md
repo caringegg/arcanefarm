@@ -20,7 +20,7 @@ I do not gather any of the info you enter. The code is open source, so feel free
 2. In the assets section, you should see a zip files. Download the one that corresponds with the OS you use by clicking on it.
 3. Unzip the file by right clicking the file, then pressing "extract all".
 4. Once it finishes extracting, open the arcanefarm folder. In it, you should see a config.ini and a main.exe file.
-5. Open config.ini with Notepad FIRST and configure your settings. Please read all the comments in that file to make sure no issues occur!
+5. Open config.ini with text editor (like Notepad) and configure your settings. Please read all the comments in that file to make sure no issues occur!
 
 Static variables:
 
