@@ -20,8 +20,8 @@ I do not gather any of the info you enter. The code is open source, so feel free
 1. Go to releases, and go to the latest release. Click on it.
 2. In the assets section, you should see a zip files. Download the one that corresponds with the OS you use by clicking on it.
 3. Unzip the file by right clicking the file, then pressing "extract all".
-4. Once it finishes extracting, open the arcanefarm folder. In it, you should see a config.ini and a main.exe file.
-5. Open config.ini with text editor (like Notepad) and configure your settings. Please read all the comments in that file to make sure no issues occur!
+4. Once it finishes extracting, open the folder. In it, you should see a config.ini and an exe file.
+5. Open config.ini with text editor (like Notepad) and configure your settings. Please read and follow all the comments in that file to make sure no issues occur!
 
 Static variables:
 
@@ -39,7 +39,9 @@ All other variables are customizable to your liking. I made it very clear how to
 
 I recommend setting the intervals between messages to be around 1 minute (Arcane's cooldown on messages) to maintain efficiency. If I'm aware, the MEE6 cooldown is also 1 minute.
 
-6. Once all variables have been defined, save the file and open main.exe. If you did it right, you now have a working discord XP farmer!
+6. Once all variables have been defined, save the file and open main.exe.
+7. You will be greeted with a confirmation screen. Read this, because you want to make sure you're doing this with the right settings.
+8. Press enter when you confirm everything. If you did it right, you now have a working discord XP farmer!
 
 
 ## Credits
