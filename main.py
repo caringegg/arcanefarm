@@ -1,7 +1,10 @@
 # 1.2.0 NOTES
+# Confirmation screen finally allows you to see the channel name
 # Bugfixing 
 # Safelist not showing up properly
 # User error handling problem fixed
+# bug that prevented users from setting `check_for_last_msg` and `delete_message` false
+# config.ini debug statement: type "config_path" in the confirmation screen to get the path to the ini file
 
 import json
 import requests
@@ -128,27 +131,7 @@ def get_time(utc_offset): # getting the current local time based on utc offset
         print('The inputted UTC offset is unrecognizable. Check config.py and make sure it is in the correct format. If you are not sure of your UTC offset, leave it blank and run the file again.')
         end()
         
-def retrieve_messages(channelid): # Defines the function to scrape discord messages: Credits to Codium
-    headers = {
-        'authorization': input_token
-    }
-    r = requests.get( # makes a request to the channel with the authorization token provided
-         f"https://discord.com/api/v9/channels/{channelid}/messages", headers=headers)
-    # Possible error messages 
-    if r.status_code != 200:
-        if r.status_code == 401: 
-            print("Token invalid or expired.")
-        elif r.status_code == 403:
-            print("You have no permission to access this channel.")
-        elif r.status_code == 404:
-            print("Channel not found. Double check the channel you inputted is correct")
-        else:
-            print(f"An error occurred: {r.status_code} - {r.reason}")
-        end()
 
-    msg_list = json.loads(r.text)
-    return msg_list 
-    
 def format_time(unformatted_run_time): # formats '[xx:xx:xx.xxx]' to 'xx hours, xx minutes, xx seconds, xxx microseconds'
     parts = str(unformatted_run_time).split(':')
     parts1 = parts[2].split('.')
@@ -172,8 +155,52 @@ def fetch_username(user_id): # uses the bot token to find the corresponding name
             return "Unknown"
     else:
         return "Unknown"
+def retrieve_messages(channelid): # Defines the function to scrape discord messages: Credits to Codium
+    headers = {
+        'authorization': input_token
+    }
+    r = requests.get( # makes a request to the channel with the authorization token provided
+         f"https://discord.com/api/v9/channels/{channelid}/messages", headers=headers)
+    # Possible error messages 
+    if r.status_code != 200:
+        if r.status_code == 401: 
+            print("Token invalid or expired.")
+        elif r.status_code == 403:
+            print("You have no permission to access this channel.")
+        elif r.status_code == 404:
+            print("Channel not found. Double check the channel you inputted is correct")
+        else:
+            print(f"An error occurred: {r.status_code} - {r.reason}")
+        end()
 
-def get_safelist_with_names(safelist): # The argument is a list of IDs. The function adds the name to the correct user ID)
+    msg_list = json.loads(r.text)
+    return msg_list 
+        
+def fetch_channel_name(channelid): # uses basically same code as the above function
+    headers = {
+        'authorization': input_token
+    }
+    r = requests.get( # makes a request to the channel with the authorization token provided
+         f"https://discord.com/api/v9/channels/{channelid}", headers=headers)
+    # Possible error messages 
+    if r.status_code != 200:
+        if r.status_code == 401: 
+            print("Token invalid or expired.")
+        elif r.status_code == 403:
+            print("You have no permission to access this channel.")
+        elif r.status_code == 404:
+            print("Channel not found. Double check the channel you inputted is correct")
+        else:
+            print(f"An error occurred: {r.status_code} - {r.reason}")
+        end()
+ 
+    channel_name = r.json()['name']
+
+    return channel_name
+
+        
+
+def get_safelist_with_names(safelist): # The argument is a list of IDs. The function adds the name to the correct user ID
     result = []
     for user_id in safelist:
         name = fetch_username(user_id)
@@ -258,13 +285,14 @@ if not utc_offset or utc_offset == "-0:00":
 if any(value < 0 for value in (min_sleep, max_sleep, min_active, max_active)): 
     print('Why did bro put a NEGATIVE number for a time duration. ')
     end()
-if not all([input_token, input_channel, input_userid, input_message, check_for_last_msg, delete_message, min_sleep, max_sleep]):
+if not all([input_token, input_channel, input_userid, input_message, min_sleep, max_sleep]):
     print('A variable that was necessary to run was left blank.')
     end()
 
 # Confirmation screen
 print('Confirm settings:\n')
 print(f'Message to be sent: {input_message}')
+print(f'Message will be sent in: {fetch_channel_name(input_channel)}')
 print(f'Check for last message: {check_for_last_msg}')
 if check_for_last_msg:
     if bot_token:
@@ -275,6 +303,8 @@ print(f'Interval between messages: {min_sleep} - {max_sleep} seconds')
 print(f'Delete messages: {delete_message}')
 if delete_message:
     print(f'Time before message deletion: {min_active/10} - {max_active/10} seconds')
-input(f'\nPress enter to confirm and run the program: ')
+if input(f'\nPress enter to confirm and run the program: ') == "config_path": # quick debugging statement if you need to find the location of config.ini
+    print(config_path)
+    input('')
 
 run_script()
