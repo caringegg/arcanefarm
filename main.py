@@ -1,11 +1,3 @@
-# 1.2.0 NOTES
-# Confirmation screen finally allows you to see the channel name
-# Bugfixing 
-# Safelist not showing up properly
-# User error handling problem fixed
-# bug that prevented users from setting `check_for_last_msg` and `delete_message` false
-# config.ini debug statement: type "config_path" in the confirmation screen to get the path to the ini file
-
 import json
 import requests
 import time
